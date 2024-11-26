@@ -12,5 +12,6 @@ LazyData: true
 Imports: 
     mclust,
     HTSCluster,
-    edgeR
+    edgeR,
+    abind
 RoxygenNote: 7.3.2

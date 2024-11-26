@@ -13,3 +13,21 @@ devtools::document()
 
 
 usethis::use_git()
+
+library(gitcreds)
+
+# link local repository with Github
+# slide 56-57 of L4
+
+
+
+
+
+
+
+
+
+
+
+
+
