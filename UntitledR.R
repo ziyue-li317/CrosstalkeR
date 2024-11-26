@@ -10,3 +10,6 @@ usethis::use_readme_rmd()
 
 devtools::load_all()
 devtools::document()
+
+
+usethis::use_git()
