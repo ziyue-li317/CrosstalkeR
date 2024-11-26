@@ -10,7 +10,7 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: 
-    mlcust,
+    mclust,
     HTSCluster,
     edgeR
 RoxygenNote: 7.3.2
