@@ -3,10 +3,6 @@
 
 
 
-
-
-
-
 library(DESeq2)
 library(clusterProfiler)
 library(org.Mm.eg.db)
@@ -51,29 +47,11 @@ prepare_interaction_data <- function(go_enrich, kegg_enrich, diff_genes) {
 
 # Visualize Pathway-Gene Interactions as a Graph
 plot_pathway_gene_interactions <- function(pathway_gene_map) {
-  # Check if pathway_gene_map is empty or not
-  if(length(pathway_gene_map) == 0) {
-    stop("Pathway-Gene map is empty. Please check the enrichment results and DEG data.")
-  }
-
-  # Print the pathway_gene_map to inspect its structure
-  print("Pathway-Gene Map:")
-  print(pathway_gene_map)
-
   # Create edges for the graph
   edges <- data.frame(
     from = rep(names(pathway_gene_map), sapply(pathway_gene_map, length)),
     to = unlist(pathway_gene_map)
   )
-
-  # Check if edges have at least two columns
-  if (ncol(edges) < 2) {
-    stop("The edges data frame should contain at least two columns: 'from' (pathway) and 'to' (gene).")
-  }
-
-  # Print edges to check its structure
-  print("Edges DataFrame:")
-  print(head(edges))
 
   # Create an igraph object
   g <- graph_from_data_frame(edges)
@@ -86,6 +64,10 @@ plot_pathway_gene_interactions <- function(pathway_gene_map) {
     theme_minimal() +
     labs(title = "Pathway-Gene Interaction Network")
 }
+
+
+
+
 
 # Rank Pathways by DEG Involvement
 rank_pathways <- function(pathway_gene_map) {
@@ -114,9 +96,6 @@ diff_genes <- read.csv("data/diff_gene_deseq2_lactate.csv")  # DESeq2 results wi
 go_enrich <- readRDS("data/go_enrich_results.rds")           # Precomputed GO enrichment results
 kegg_enrich <- readRDS("data/kegg_enrich_results.rds")       # Precomputed KEGG enrichment results
 
-class(go_enrich)
-class(kegg_enrich)
-
 
 
 # Prepare interaction data
@@ -127,3 +106,4 @@ plot_pathway_gene_interactions(pathway_gene_map)
 
 # Plot ranked pathways
 rank_pathways(pathway_gene_map)
+
