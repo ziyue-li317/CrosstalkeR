@@ -61,14 +61,16 @@ Pathways are sorted by gene count and plotted in descending order.
 
 ## Contribution
 
-The author of package is Ziyue Li. The author write
-**prepare_interaction_data** to processes the Gene Ontology (GO) and
-Kyoto Encyclopedia of Genes and Genomes (KEGG) enrichment results,
-filtering for pathways with a q-value less than 0.1. It then maps the
-significant pathways to the corresponding genes, focusing only on
-differentially expressed genes (DEGs) by filtering genes based on their
-Entrez gene IDs. The function returns a list of pathways with their
-associated DEG gene sets, which can be used for further analysis.
+The author of package is Ziyue Li.
+
+The author write **prepare_interaction_data** to processes the Gene
+Ontology (GO) and Kyoto Encyclopedia of Genes and Genomes (KEGG)
+enrichment results, filtering for pathways with a q-value less than 0.1.
+It then maps the significant pathways to the corresponding genes,
+focusing only on differentially expressed genes (DEGs) by filtering
+genes based on their Entrez gene IDs. The function returns a list of
+pathways with their associated DEG gene sets, which can be used for
+further analysis.
 
 Developed by the author, **plot_pathway_gene_interactions** visualizes
 the interaction network between pathways and genes. It creates a graph
@@ -84,35 +86,48 @@ involvement. The function provides a clear ranking of pathways, aiding
 in the identification of the most relevant pathways in the context of
 DEG analysis.
 
+Also, OpenAI’s ChatGPT, were used to help structure the Roxygen
+documentation and provide suggestions for optimizing the code logic.
+
+## Reference
+
+Silva A. (2019). GitHub - anjalisilva/TestingPackage: R Package
+Illustrating Components of an R package for BCB410H - Applied
+Bioinformatics (2019-2023), University of Toronto, Canada. GitHub.
+<https://github.com/anjalisilva/TestingPackage>
+
+OpenAI. (2024). ChatGPT (Version 3.5). Retrieved from
+<https://chat.openai.com/chat>
+
+Love MI, Huber W, Anders S (2014). “Moderated estimation of fold change
+and dispersion for RNA-seq data with DESeq2.” Genome Biology, 15, 550.
+<doi:10.1186/s13059-014-0550-8>.
+
+Thomas PD, Ebert D, Muruganujan A, Mushayahama T, Albou LP, Mi H (2022).
+“PANTHER: Making genome-scale phylogenetics accessible to all.” Protein
+Science, 31(1), 8-22. <doi:10.1002/pro.4218>.
+
+Kanehisa M, Goto S, Sato Y, et al. (2012). “KEGG for integration and
+interpretation of large-scale molecular data sets.” Nucleic Acids
+Research, 40(D1), D109-D114. <doi:10.1093/nar/gkr988>.
+
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example which shows you how to utilize the functions:
 
-``` r
 
-## basic example code
-```
+    # Example Usage: Assuming DESeq2 and enrichment data is in the 'data' file
+    # Load data (Replace 'data' with your actual file names)
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+    diff_genes <- read.csv("data/diff_gene_deseq2_lactate.csv")  # DESeq2 results with annotated DEGs
+    go_enrich <- readRDS("data/go_enrich_results.rds")           # Precomputed GO enrichment results
+    kegg_enrich <- readRDS("data/kegg_enrich_results.rds")       # Precomputed KEGG enrichment results
 
-``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
-```
+    # Prepare interaction data
+    pathway_gene_map <- prepare_interaction_data(go_enrich, kegg_enrich, diff_genes)
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this.
+    # Plot pathway-gene interaction network
+    plot_pathway_gene_interactions(pathway_gene_map)
 
-You can also embed plots, for example:
-
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+    # Plot ranked pathways
+    rank_pathways(pathway_gene_map)
