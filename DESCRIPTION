@@ -12,8 +12,21 @@ LazyData: true
 Imports: 
     mclust,
     HTSCluster,
-    edgeR,
-    abind
+    abind,
+    edgeR, 
+    limma, 
+    Glimma, 
+    org.Mm.eg.db, 
+    gplots, 
+    RColorBrewer, 
+    NMF, 
+    dplyr, 
+    DESeq2, 
+    biomaRt, 
+    curl, 
+    clusterProfiler, 
+    DOSE, 
+    enrichplot
 RoxygenNote: 7.3.2
 Suggests: 
     testthat (>= 3.0.0)
