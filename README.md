@@ -8,10 +8,11 @@ The goal of CrosstalkeR is to ...
 
 ## Installation
 
-You can install the development version of CrosstalkeR like so:
+You can install the development version of CrosstalkeR from [GitHub](https://github.com/) with:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+# install.packages("pak")
+pak::pak("ziyue-li317/CrosstalkeR")
 ```
 
 ## Example

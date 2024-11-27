@@ -20,12 +20,18 @@ knitr::opts_chunk$set(
 
 The goal of CrosstalkeR is to ...
 
+## Description
+
+
+
+
 ## Installation
 
-You can install the development version of CrosstalkeR like so:
+You can install the development version of CrosstalkeR from [GitHub](https://github.com/) with:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+# install.packages("pak")
+pak::pak("ziyue-li317/CrosstalkeR")
 ```
 
 ## Example

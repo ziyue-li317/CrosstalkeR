@@ -5,8 +5,8 @@
 #  devtools::has_devel()
 # usethis::use_mit_license("Ziyue Li")
 # usethis::use_package("mclust", type = "Imports")
-# usethis::use_readme_md()
-# usethis::use_readme_rmd()
+ usethis::use_readme_md()
+ usethis::use_readme_rmd()
 
 # devtools::load_all()
 # devtools::document()
