@@ -40,6 +40,7 @@ To run the Shiny app:
 
 
 
+
 ## Overview
 
 ``` r
@@ -78,6 +79,14 @@ Love MI, Huber W, Anders S (2014). “Moderated estimation of fold change and di
 Thomas PD, Ebert D, Muruganujan A, Mushayahama T, Albou LP, Mi H (2022). “PANTHER: Making genome-scale phylogenetics accessible to all.” Protein Science, 31(1), 8-22. doi:10.1002/pro.4218.
 
 Kanehisa M, Goto S, Sato Y, et al. (2012). “KEGG for integration and interpretation of large-scale molecular data sets.” Nucleic Acids Research, 40(D1), D109-D114. doi:10.1093/nar/gkr988.
+
+
+
+## Acknowledgement
+This package was developed as part of an assessment for 2024 BCB410H: Applied Bioinformatics course at the University of Toronto, Toronto, CANADA. `CrosstalkeR` welcomes issues,
+enhancement requests, and other contributions. To submit an issue, use the GitHub issues.
+
+
 
 ## Example
 

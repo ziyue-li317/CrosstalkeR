@@ -111,6 +111,13 @@ Kanehisa M, Goto S, Sato Y, et al. (2012). “KEGG for integration and
 interpretation of large-scale molecular data sets.” Nucleic Acids
 Research, 40(D1), D109-D114. <doi:10.1093/nar/gkr988>.
 
+## Acknowledgement
+
+This package was developed as part of an assessment for 2024 BCB410H:
+Applied Bioinformatics course at the University of Toronto, Toronto,
+CANADA. `CrosstalkeR` welcomes issues, enhancement requests, and other
+contributions. To submit an issue, use the GitHub issues.
+
 ## Example
 
 This is a basic example which shows you how to utilize the functions:
