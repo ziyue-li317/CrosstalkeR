@@ -1,15 +1,10 @@
 Package: CrosstalkeR
 Type: Package
-Title: A tool to deduce possible pathway involved in a certain cellular phenomenon 
-from RNA-Sequence data, and then indicate possible target downstream or upstream gene for research.
+Title: CrosstalkeR: A tool to deduce possible pathway involved in a certain cellular phenomenon from RNA-Sequence data, and then indicate possible target downstream or upstream gene for research.
 Version: 0.1.0
 Author: Ziyue Li
 Maintainer: The package maintainer <yourself@somewhere.net>
-Description: CrosstalkR is a tool that analyzes RNA-Seq data to identify potential 
-pathways involved in a cellular phenomenon. It predicts key upstream and downstream 
-genes, helping researchers uncover biological processes, explore disease mechanisms, 
-and identify therapeutic targets. By integrating gene expression with pathway analysis, 
-CrosstalkR enables more informed hypothesis generation and experimental design.
+Description: CrosstalkR is a tool that analyzes RNA-Seq data to identify potential pathways involved in a cellular phenomenon. It predicts key upstream and downstream genes, helping researchers uncover biological processes, explore disease mechanisms, and identify therapeutic targets. By integrating gene expression with pathway analysis, CrosstalkR enables more informed hypothesis generation and experimental design.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

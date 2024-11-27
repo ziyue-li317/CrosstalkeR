@@ -19,7 +19,7 @@
 # link local repository with Github
 # slide 56-57 of L4
 
-
+ usethis::use_testthat()
 
 
 

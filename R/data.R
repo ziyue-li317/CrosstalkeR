@@ -77,3 +77,4 @@ rownames(final_data) <- final_data[, 1]
 my_data <- final_data[, -1]
 # here we generate right formal for DESeq2
 write.csv(my_data, file = "my_data.csv", row.names = TRUE)
+
