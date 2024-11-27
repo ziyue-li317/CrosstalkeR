@@ -63,8 +63,9 @@ associated with each. It creates a bar plot to visualize the ranking,
 helping identify the most relevant pathways based on DEG involvement.
 Pathways are sorted by gene count and plotted in descending order.
 
-Refer to package vignettes for more details. An overview of the package
-is illustrated below.
+Refer to package vignettes for more details.
+
+An overview of the package is illustrated below.
 
 ![](./inst/extdata/Ziyue_li.png)
 
