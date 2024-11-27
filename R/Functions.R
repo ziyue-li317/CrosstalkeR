@@ -1,8 +1,3 @@
-
-
-
-
-
 library(DESeq2)
 library(clusterProfiler)
 library(org.Mm.eg.db)
