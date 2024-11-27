@@ -1,0 +1,105 @@
+---
+title: "Introduction_CrosstalkeR"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction_CrosstalkeR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(fig.align = "center", 
+               out.width = "90%",
+               fig.width = 6, fig.height = 5.5,
+               dev.args=list(pointsize=10),
+               par = TRUE, # needed for setting hook 
+               collapse = TRUE, # collapse input & ouput code in chunks
+               warning = FALSE)
+knit_hooks$set(par = function(before, options, envir)
+  { if(before && options$fig.show != "none") 
+       par(family = "sans", mar=c(4.1,4.1,1.1,1.1), mgp=c(3,1,0), tcl=-0.5)
+})
+set.seed(1) # for exact reproducibility
+```
+
+## Introduction
+
+The goal of `CrosstalkeR` is to deduce possible pathway involved in a certain cellular phenomenon from RNA-Sequence data, and then indicate possible target downstream or upstream gene for research.
+
+To download **TestingPackage**, use the following commands:
+
+``` r
+install.packages("devtools")
+library("devtools")
+devtools::install_github("ziyue-li317/CrosstalkeR", build_vignettes = TRUE)
+library("CrosstalkeR")
+```
+To list all sample functions available in the package:
+``` r
+ls("package:CrosstalkeR")
+```
+
+To list all sample datasets available in the package:
+``` r
+data(package = "CrosstalkeR")
+```
+`Crosstalke` contains three functions:
+
+1.prepare_interaction_data: This function extracts significant GO and KEGG pathways, filters them by q-value, and maps each pathway to associated genes. It then intersects the gene list with differentially expressed genes (DEGs) to create a final pathway-gene mapping.
+
+2.plot_pathway_gene_interactions: This function visualizes the interaction between pathways and genes by creating a network graph. It uses igraph to plot pathways as nodes and DEGs as connected genes, providing insights into gene-pathway relationships with a visually appealing layout.
+
+3.rank_pathways: This function ranks pathways by the number of DEGs associated with each. It creates a bar plot to visualize the ranking, helping identify the most relevant pathways based on DEG involvement. Pathways are sorted by gene count and plotted in descending order.
+
+
+
+<br>
+
+
+## Example and data import
+
+``` r
+# Example Usage: Assuming DESeq2 and enrichment data is in the 'data' file
+# Load data (Replace 'data' with your actual file names)
+diff_genes <- read.csv("data/diff_gene_deseq2_lactate.csv")  # DESeq2 results with annotated DEGs
+go_enrich <- readRDS("data/go_enrich_results.rds")           # Precomputed GO enrichment results
+kegg_enrich <- readRDS("data/kegg_enrich_results.rds")       # Precomputed KEGG enrichment results
+
+
+
+# Prepare interaction data
+pathway_gene_map <- prepare_interaction_data(go_enrich, kegg_enrich, diff_genes)
+
+# Plot pathway-gene interaction network
+plot_pathway_gene_interactions(pathway_gene_map)
+
+# Plot ranked pathways
+rank_pathways(pathway_gene_map)
+```
+
+
+
+## Package References
+
+- Ziyue, L. (2024) CrosstalkeR : A tool to deduce possible pathway involved in a certain cellular phenomenon from RNA-Sequence data, and then indicate possible target downstream or upstream gene for research. Unpublished. https://github.com/ziyue-li317/CrosstalkeR
+
+<br>
+
+## Other References
+
+- Silva A. (2019). GitHub - anjalisilva/TestingPackage: R Package Illustrating Components of an R package for BCB410H - Applied Bioinformatics (2019-2023), University of Toronto, Canada. GitHub. https://github.com/anjalisilva/TestingPackage
+
+- OpenAI. (2024). ChatGPT (Version 3.5). Retrieved from https://chat.openai.com/chat
+
+- Love MI, Huber W, Anders S (2014). “Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2.” Genome Biology, 15, 550. doi:10.1186/s13059-014-0550-8.
+
+- Thomas PD, Ebert D, Muruganujan A, Mushayahama T, Albou LP, Mi H (2022). “PANTHER: Making genome-scale phylogenetics accessible to all.” Protein Science, 31(1), 8-22. doi:10.1002/pro.4218.
+
+- Kanehisa M, Goto S, Sato Y, et al. (2012). “KEGG for integration and interpretation of large-scale molecular data sets.” Nucleic Acids Research, 40(D1), D109-D114. doi:10.1093/nar/gkr988.
+
+----
+
+```{r}
+sessionInfo()
+```
