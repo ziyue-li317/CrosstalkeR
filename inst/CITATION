@@ -1,0 +1,13 @@
+citHeader("To cite CrosstalkeR in publications use:")
+
+citEntry(entry = "Unpublished",
+  title        = "CrosstalkeR: A tool to deduce possible pathway involved in a certain cellular phenomenon
+from RNA-Sequence data, and then indicate possible target downstream or upstream gene for research.",
+  author       = "Ziyue Li",
+  note         = "Unpublished",
+  year         = "2024",
+
+  textVersion  =
+  paste("Ziyue, Li. (2024) CrosstalkeR: A tool to deduce possible pathway involved in a certain cellular phenomenon
+from RNA-Sequence data, and then indicate possible target downstream or upstream gene for research.Unpublished. URL https://github.com/ziyue-li317/CrosstalkeR ")
+)
