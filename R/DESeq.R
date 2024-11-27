@@ -114,6 +114,8 @@ diff_name <- merge(diff_gene_deseq2_lactate, all_symbols, by="entrezgene_id",
 head(diff_gene_deseq2_lactate)
 head(diff_name)
 
+
+
 #pathway enrichment analyses
 install.packages("BiocManager")
 BiocManager::install()
@@ -160,8 +162,9 @@ dotplot(kegg_enrich, showCategory = 10)   # Dotplot for KEGG pathways
 write.csv(go_enrich, file = "go_enrichment_results.csv")
 write.csv(kegg_enrich, file = "kegg_enrichment_results.csv")
 
-
-
-
+go_enrich_results <- read.csv("data/go_enrichment_results.csv", row.names = 1)
+saveRDS(go_enrich_results, file = "data/go_enrich_results.rds")
+kegg_enrich_results <- read.csv("data/kegg_enrichment_results.csv")
+saveRDS(kegg_enrich_results, file = "data/kegg_enrich_results.rds")
 
 
