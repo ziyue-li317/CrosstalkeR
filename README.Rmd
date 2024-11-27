@@ -59,7 +59,7 @@ browseVignettes("<CrosstalkeR>")
 
 Refer to package vignettes for more details. An overview of the package is illustrated below. 
 
-![](./inst/extdata/Overview image.png)
+![](./inst/extdata/Ziyue_li.png)
 
 ## Contribution
 The author of package is Ziyue Li. 

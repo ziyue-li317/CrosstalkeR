@@ -66,7 +66,7 @@ Pathways are sorted by gene count and plotted in descending order.
 Refer to package vignettes for more details. An overview of the package
 is illustrated below.
 
-![](./inst/extdata/Overview%20image.png)
+![](./inst/extdata/Ziyue_li.png)
 
 ## Contribution
 
