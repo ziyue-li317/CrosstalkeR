@@ -22,9 +22,6 @@ The goal of CrosstalkeR is to ...
 
 ## Description
 
-
-
-
 ## Installation
 
 You can install the development version of CrosstalkeR from [GitHub](https://github.com/) with:
@@ -39,7 +36,7 @@ pak::pak("ziyue-li317/CrosstalkeR")
 This is a basic example which shows you how to solve a common problem:
 
 ```{r example}
-library(CrosstalkeR)
+
 ## basic example code
 ```
 
