@@ -33,6 +33,10 @@ library("CrosstalkeR")
 
 To run the Shiny app:
 
+``` r
+runCrosstalkeR()
+```
+
 ## Overview
 
 ``` r

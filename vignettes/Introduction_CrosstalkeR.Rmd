@@ -35,6 +35,11 @@ library("devtools")
 devtools::install_github("ziyue-li317/CrosstalkeR", build_vignettes = TRUE)
 library("CrosstalkeR")
 ```
+To run the Shiny app:
+```r
+runCrosstalkeR()
+```
+
 To list all sample functions available in the package:
 ``` r
 ls("package:CrosstalkeR")
