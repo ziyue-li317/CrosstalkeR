@@ -67,7 +67,7 @@ Refer to package vignettes for more details.
 
 An overview of the package is illustrated below.
 
-![](./inst/extdata/Ziyue_li.png)
+![](./inst/extdata/Ziyue_Li.png)
 
 ## Contribution
 
