@@ -114,6 +114,51 @@ diff_name <- merge(diff_gene_deseq2_lactate, all_symbols, by="entrezgene_id",
 head(diff_gene_deseq2_lactate)
 head(diff_name)
 
+#pathway enrichment analyses
+install.packages("BiocManager")
+BiocManager::install()
+BiocManager::install("clusterProfiler")
+BiocManager::install("org.Mm.eg.db")
+BiocManager::install("DOSE")
+BiocManager::install("enrichplot")
+
+library(clusterProfiler)
+library(org.Mm.eg.db)
+library(DOSE)
+library(enrichplot)
+
+sig_genes <- diff_name[!is.na(diff_name$entrezgene_id) & diff_name$padj < 0.05 &
+                         (diff_name$log2FoldChange > 1 | diff_name$log2FoldChange < -1), ]
+
+sig_genes_entrez <- sig_genes$entrezgene_id
+
+go_enrich <- enrichGO(gene = sig_genes_entrez,
+                      OrgDb = org.Mm.eg.db,
+                      ont = "BP",
+                      pAdjustMethod = "BH",
+                      pvalueCutoff = 0.05,
+                      qvalueCutoff = 0.1)
+
+head(go_enrich)
+
+barplot(go_enrich, showCategory = 10)
+dotplot(go_enrich, showCategory = 10)
+
+kegg_enrich <- enrichKEGG(gene = sig_genes_entrez,
+                          organism = "mmu",   # Mouse KEGG database
+                          pAdjustMethod = "BH",
+                          pvalueCutoff = 0.05)
+
+head(kegg_enrich)
+
+# Visualize
+barplot(kegg_enrich, showCategory = 10)   # Show top 10 KEGG pathways
+dotplot(kegg_enrich, showCategory = 10)   # Dotplot for KEGG pathways
+
+
+# results for CrosstalkeR functions
+write.csv(go_enrich, file = "go_enrichment_results.csv")
+write.csv(kegg_enrich, file = "kegg_enrichment_results.csv")
 
 
 
